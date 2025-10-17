@@ -1,0 +1,45 @@
+import 'package:flutter/material.dart';
+import '../services/product_service.dart';
+import '../models/product.dart';
+
+class ProductListScreen extends StatefulWidget {
+  const ProductListScreen({super.key});
+
+  @override
+  _ProductListScreenState createState() => _ProductListScreenState();
+}
+
+class _ProductListScreenState extends State<ProductListScreen> {
+  final ProductService service = ProductService();
+  List<Product> products = [];
+
+  @override
+  void initState() {
+    super.initState();
+    loadProducts();
+  }
+
+  void loadProducts() async {
+    final allProducts = await service.getAllProducts();
+    setState(() {
+      products = allProducts;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: const Text('Products')),
+      body: ListView.builder(
+        itemCount: products.length,
+        itemBuilder: (context, index) {
+          final product = products[index];
+          return ListTile(
+            title: Text(product.name),
+            subtitle: Text('GTIN: ${product.gtin}'),
+          );
+        },
+      ),
+    );
+  }
+}

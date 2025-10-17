@@ -42,9 +42,9 @@
 
 ---
 
-## Как Запустить Проект
+## Как Запустить Проект ( Два варианта)
 
-### 1. Требования
+### 1.Вариант 1: Скачивание репозитория
 
 *   Установленный **Flutter SDK** (версия 3.x.x или выше).
 *   IDE (VS Code или Android Studio) с плагинами Flutter и Dart.
@@ -63,7 +63,7 @@ flutter pub get
 flutter pub run build_runner build --delete-conflicting-outputs
 ```
 
-### 3. Запуск в браузере (через PowerShell)
+### 3.Вариант 2: Запуск в браузере (через PowerShell)
 
 Если вы хотите быстро проверить приложение в браузере (Chrome) через веб-версию, выполните следующие шаги в PowerShell. Инструкция предполагает, что у вас установлен Flutter и доступен браузер.
 
@@ -71,9 +71,11 @@ flutter pub run build_runner build --delete-conflicting-outputs
 
 ```powershell
 git clone https://github.com/Diablo-627/warehouse_app.git
+
+```
+```powershell
 cd warehouse_app
 ```
-
 2) Установите зависимости:
 
 ```powershell
@@ -85,7 +87,7 @@ flutter pub get
     - Если `stock.g.dart` (или другие `*.g.dart`) отсутствуют — выполните генерацию:
 
 ```powershell
-# Генерация адаптеров Hive (если их нет в репозитории)
+# Генерация адаптеров Hive ( их нет в репозитории- нужно прописать)
 flutter pub run build_runner build --delete-conflicting-outputs
 ```
 

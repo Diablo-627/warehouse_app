@@ -1,6 +1,6 @@
-# Warehouse App (Финальная Версия для Стажировки)
+# Warehouse App (Финальная Версия для Тестового Задания)
 
-Это финальная версия проекта для учета товаров и остатков на складе, полностью соответствующая всем требованиям технического задания.
+Финальная версия проекта, выполненная с помощью Flutter+Dart+Copilot into Visual Studio Code.
 
 ## Требования к Сдаче Работы
 
@@ -69,14 +69,14 @@ flutter pub run build_runner build --delete-conflicting-outputs
 Запустите приложение на выбранном устройстве или эмуляторе:
 
 ```bash
-flutter run
+flutter run (flutter run --release)
 ```
 
 Проект готов к работе на Android, iOS, Web и Desktop.
 
 ## Установка APK (для Android)
 
-Если вы хотите установить приложение прямо на телефон, можно воспользоваться APK-файлом, который находится в релизе репозитория или собран локально.
+Если вы хотите установить приложение прямо на телефон, можно воспользоваться APK-файлом,  ниже указан путь к файлу, созданный программой.
 
 - Путь к собранному APK (релиз): `build/app/outputs/flutter-apk/app-release.apk`
 - Чтобы установить APK на Android-устройство:
@@ -84,20 +84,6 @@ flutter run
     2. На устройстве разрешите установку из неизвестных источников (в настройках безопасности или через менеджер загрузок).
     3. Откройте файл и установите приложение.
 
-### Публикация APK на GitHub Releases
 
-Мы загрузили релиз в репозиторий. Если вы хотите скачать APK с GitHub:
-1. Откройте: https://github.com/Diablo-627/warehouse_app/releases
-2. Найдите релиз (например, `v1.0.0`) и скачайте `app-release.apk` из Assets.
-
-Если вы сами хотите загрузить APK в релиз, используйте GitHub CLI:
-
-```powershell
-gh auth login
-gh release create v1.0.0 build\app\outputs\flutter-apk\app-release.apk --title "v1.0.0" --notes "Первый релиз APK"
-```
-
----
-
-Если нужно, могу добавить автоматический workflow для сборки и публикации APK в GitHub Actions.
-
+Скриншоты и видео прикрепляю в гугл диск(ссылка):
+https://drive.google.com/drive/folders/151Gp3xzPyO8V20opRkGp0sDgdvTpMa5g?usp=sharing

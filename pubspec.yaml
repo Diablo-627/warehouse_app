@@ -36,6 +36,4 @@ flutter:
   uses-material-design: true
 
   assets:
-    - ../assets/images/
-
-  # Примечание: дополнительные зависимости и настройки выше
+    - assets/images/

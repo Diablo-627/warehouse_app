@@ -92,8 +92,8 @@ flutter pub run build_runner build --delete-conflicting-outputs
 4) Запустите приложение в браузере (Chrome):
 
 ```powershell
-# Запуск приложения в режиме отладки на Chrome
-flutter run -d chrome
+# Запуск приложения в режиме отладки ( Выбирайте Web)(У меня например Edge)
+flutter run 
 
 # Или, чтобы запустить сборку для web и открыть локальный сервер
 flutter build web; Start-Process "build\web\index.html"
@@ -129,17 +129,9 @@ flutter build web; Start-Process "build\web\index.html"
 flutter run (flutter run --release)
 ```
 
-Проект готов к работе на Android, iOS, Web и Desktop.
+Проект готов к работе на Android, Web, Desktop, IOS
 
-## Установка APK (для Android)
 
-Если вы хотите установить приложение прямо на телефон, можно воспользоваться APK-файлом,  ниже указан путь к файлу, созданный программой.
-
-- Путь к собранному APK (релиз): `build/app/outputs/flutter-apk/app-release.apk`
-- Чтобы установить APK на Android-устройство:
-    1. Скопируйте `app-release.apk` на телефон (через USB, почту, Google Drive или мессенджер).
-    2. На устройстве разрешите установку из неизвестных источников (в настройках безопасности или через менеджер загрузок).
-    3. Откройте файл и установите приложение.
 
 
 Скриншоты и видео прикрепляю в гугл диск(ссылка):

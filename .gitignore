@@ -1,45 +1,46 @@
-# Miscellaneous
-*.class
-*.log
-*.pyc
-*.swp
+# Keep only source and web assets in repo
+# Ignore everything except lib/, web/, README.md, pubspec.yaml, pubspec.lock, and .gitignore itself
+
+# Basic ignores
 .DS_Store
-.atom/
-.build/
-.buildlog/
-.history
-.svn/
-.swiftpm/
-migrate_working_dir/
+*.log
+*.tmp
 
-# IntelliJ related
-*.iml
-*.ipr
-*.iws
-.idea/
-
-# The .vscode folder contains launch configuration and tasks you configure in
-# VS Code which you may wish to be included in version control, so this line
-# is commented out by default.
-#.vscode/
-
-# Flutter/Dart/Pub related
-**/doc/api/
-**/ios/Flutter/.last_build_id
+# Flutter / Dart
 .dart_tool/
-.flutter-plugins-dependencies
-.pub-cache/
+.packages
 .pub/
-/build/
-/coverage/
+build/
 
-# Symbolication related
-app.*.symbols
+# IDEs
+.idea/
+*.iml
+.vscode/
 
-# Obfuscation related
-app.*.map.json
+# Platform folders (we will keep lib/ and web/ only)
+android/
+ios/
+linux/
+macos/
+windows/
 
-# Android Studio will place build artifacts here
-/android/app/debug
-/android/app/profile
-/android/app/release
+# Generated files
+*.g.dart
+
+# Secrets and keys
+**/google-services.json
+**/GoogleService-Info.plist
+*.jks
+*.keystore
+secrets.yaml
+
+# Other
+pubspec.lock
+
+# Allow the files we want
+!lib/
+!web/
+!README.md
+!.gitignore
+!pubspec.yaml
+!pubspec.lock

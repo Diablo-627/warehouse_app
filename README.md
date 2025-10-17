@@ -74,3 +74,30 @@ flutter run
 
 Проект готов к работе на Android, iOS, Web и Desktop.
 
+## Установка APK (для Android)
+
+Если вы хотите установить приложение прямо на телефон, можно воспользоваться APK-файлом, который находится в релизе репозитория или собран локально.
+
+- Путь к собранному APK (релиз): `build/app/outputs/flutter-apk/app-release.apk`
+- Чтобы установить APK на Android-устройство:
+    1. Скопируйте `app-release.apk` на телефон (через USB, почту, Google Drive или мессенджер).
+    2. На устройстве разрешите установку из неизвестных источников (в настройках безопасности или через менеджер загрузок).
+    3. Откройте файл и установите приложение.
+
+### Публикация APK на GitHub Releases
+
+Мы загрузили релиз в репозиторий. Если вы хотите скачать APK с GitHub:
+1. Откройте: https://github.com/Diablo-627/warehouse_app/releases
+2. Найдите релиз (например, `v1.0.0`) и скачайте `app-release.apk` из Assets.
+
+Если вы сами хотите загрузить APK в релиз, используйте GitHub CLI:
+
+```powershell
+gh auth login
+gh release create v1.0.0 build\app\outputs\flutter-apk\app-release.apk --title "v1.0.0" --notes "Первый релиз APK"
+```
+
+---
+
+Если нужно, могу добавить автоматический workflow для сборки и публикации APK в GitHub Actions.
+

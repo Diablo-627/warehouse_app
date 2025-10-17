@@ -63,6 +63,65 @@ flutter pub get
 flutter pub run build_runner build --delete-conflicting-outputs
 ```
 
+### 4. Запуск в браузере (через PowerShell)
+
+Если вы хотите быстро проверить приложение в браузере (Chrome) через веб-версию, выполните следующие шаги в PowerShell. Инструкция предполагает, что у вас установлен Flutter и доступен браузер Chrome.
+
+1) Клонируйте репозиторий и перейдите в папку проекта:
+
+```powershell
+git clone https://github.com/Diablo-627/warehouse_app.git
+cd warehouse_app
+```
+
+2) Установите зависимости:
+
+```powershell
+flutter pub get
+```
+
+3) Проверьте, есть ли сгенерированные Hive-адаптеры (`lib/models/*.g.dart`).
+    - Если в папке `lib/models` присутствуют файлы `product.g.dart` и `stock.g.dart`, пропустите шаг 4.
+    - Если `stock.g.dart` (или другие `*.g.dart`) отсутствуют — выполните генерацию:
+
+```powershell
+# Генерация адаптеров Hive (если их нет в репозитории)
+flutter pub run build_runner build --delete-conflicting-outputs
+```
+
+4) Запустите приложение в браузере (Chrome):
+
+```powershell
+# Запуск приложения в режиме отладки на Chrome
+flutter run -d chrome
+
+# Или, чтобы запустить сборку для web и открыть локальный сервер
+flutter build web; Start-Process "build\web\index.html"
+```
+
+Примечания:
+- Если при выполнении `flutter run -d chrome` появится ошибка о том, что Chrome не найден, убедитесь, что Chrome установлен и доступен в PATH, либо запустите через поддерживаемый браузер, например `edge`.
+- Если вы видите ошибки типа "TypeAdapter not found for typeId ...", это означает, что не все `*.g.dart` файлы были сгенерированы или не зарегистрированы. В таком случае выполните команду генерации (см. выше).
+
+Если хотите, я могу добавить в репозиторий недостающий `stock.g.dart` (сгенерировать и закоммитить) — скажите, и я это сделаю.
+
+## Сборка iOS (через GitHub Actions)
+
+Я добавил пример workflow для GitHub Actions, который собирает unsigned iOS IPA на macOS-раннере и загружает артефакт в интерфейсе Actions.
+
+Файл workflow: `.github/workflows/build_ios.yml` — он запускается вручную (workflow_dispatch).
+
+Важные замечания:
+- Собранный файл будет unsigned (без подписи). Для установки на реальное устройство или публикации в App Store требуется подпись (certificate + provisioning profile) и учетная запись Apple Developer.
+- Чтобы автоматизировать подпись и загрузку в App Store, обычно используют fastlane и GitHub Secrets (APP_STORE_CONNECT_KEY, MATCH_PASSWORD и т.п.). Такие секреты не добавлены в этот репозиторий по соображениям безопасности.
+
+Как запустить workflow из GitHub:
+1. Откройте страницу репозитория на github.com.
+2. Перейдите в Actions → выберите workflow "Build iOS (unsigned)" → нажмите "Run workflow".
+3. После завершения сборки скачайте артефакт `ios-unsigned` и подпишите/установите IPA локально с помощью Xcode или других инструментов.
+
+Если хотите, могу помочь настроить подпись через fastlane и добавить инструкции по хранению секретов в GitHub Secrets.
+
 ### 3. Запуск Приложения
 
 Запустите приложение на выбранном устройстве или эмуляторе:
